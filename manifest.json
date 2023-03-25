@@ -1,16 +1,27 @@
 {
   "manifest_version": 2,
-  "name": "ABC Addon",
-  "description": "ABC Youtube Fun",
+  "name": "ScreenPin",
+  "description": "ScreenPin",
   "version": "0.0.1",
   "icons": {
     "96": "icons/icon.png"
   },
+  
+  "browser_action":{
+    "browser_style": true,
+    "default_popup": "popup.html"
+  },
+  
+  "background":{
+    "scripts":["background.js"],
+    "persistent": false
+  }, 
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/*"],
+      "matches": ["<all_urls>"],
       "js": ["content_script.js"]
     }
-  ]
- 
+  ],
+  "permissions": ["contextMenus", "menus", "<all_urls>"]
+  
 }
