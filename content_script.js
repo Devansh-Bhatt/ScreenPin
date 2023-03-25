@@ -3,7 +3,8 @@ const pins = [];
 window.addEventListener("contextmenu", function (e) {
   yCordFinal = window.scrollY + e.clientY;
   pins.push(yCordFinal);
-  browser.runtime.sendMessage({ action: "updatePopupHTML", pins });
+  console.log(yCordFinal);
+  browser.runtime.sendMessage({ action: "updatePopupHTML", yCordFinal });
 });
 
 // const div1 = document.getElementById("tes");
