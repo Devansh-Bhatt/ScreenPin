@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "ABC Addon",
+  "description": "ABC Youtube Fun",
+  "version": "0.0.1",
+  "icons": {
+    "96": "icons/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content_script.js"]
+    }
+  ]
+ 
+}
