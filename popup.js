@@ -1,12 +1,12 @@
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log("In Popup.js");
-  if (message.action === "Data") {
-    var data = message.pins;
-  }
-  const div = document.querySelector(".containerdiv");
+  if (message.action === "sendData") {
+    console.log("In Popup.js");
+    var data = message.data;
+    const div = document.querySelector(".containerdiv");
 
-  for (let i = 0; i < data.length; i++) {
-    div.appendChild("Hello World " + i);
+    const button = document.createElement("button");
+    button.innerHTML = data;
+    div.appendChild(button);
   }
 });
 

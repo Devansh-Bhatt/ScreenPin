@@ -16,22 +16,15 @@ browser.menus.create(
   onCreated
 );
 
+browser.runtime.onMessage.addListener((message, sender) => {
+  if (message.action === "updatePopupHTML") {
+    const data = message.yCordFinal;
+    console.log(data);
+    browser.runtime.sendMessage({ action: "sendData", data });
+  }
+});
 browser.menus.onClicked.addListener((info, tab) => {
   browser.tabs.executeScript(tab.id, {
     file: "/content_script.js",
   });
-  browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
-    // Inject the JavaScript code into the active tab's content process
-    browser.tabs.executeScript(tabs[0].id, {
-      code: "var myElement = document.getElementById('tes'); console.log(myElement);",
-    });
-  });
-});
-
-browser.runtime.onMessage.addListener((message, sender) => {
-  if (message.action === "updatePopupHTML") {
-    browser.tabs.executeScript(sender.tab.id, {
-      file: "/popup.js",
-    });
-  }
 });
