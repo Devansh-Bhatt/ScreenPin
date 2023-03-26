@@ -1,4 +1,4 @@
-#ScreenPin
+# ScreenPin
 
 ScreenPin is a utility add-on for browsers which adds so-called "pins" on different locations in a webpage.
 
