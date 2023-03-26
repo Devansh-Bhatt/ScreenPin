@@ -1,10 +1,11 @@
-var yCordFinal;
+let yCordFinal;
 const pins = [];
 window.addEventListener("contextmenu", function (e) {
   yCordFinal = window.scrollY + e.clientY;
   pins.push(yCordFinal);
   console.log(yCordFinal);
-  browser.runtime.sendMessage({ action: "updatePopupHTML", yCordFinal });
+  browser.storage.local.set({data: pins})
+  browser.runtime.sendMessage({ action: "updatePopupHTML", data: yCordFinal });
 });
 
 // const div1 = document.getElementById("tes");

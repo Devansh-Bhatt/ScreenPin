@@ -22,6 +22,6 @@
       "js": ["content_script.js"]
     }
   ],
-  "permissions": ["contextMenus", "menus", "<all_urls>"]
+  "permissions": ["contextMenus", "menus", "<all_urls>","storage"]
   
 }
